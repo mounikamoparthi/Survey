@@ -12,10 +12,10 @@
 		<th>Action</th>
 	</tr>
 <tr class= "col-md-3 product" *ngFor = "let q of list_questions| filter:searchStr">
-  <td> {{q.user_id}} </td>
+  <td> {{q.user_name}} </td>
   <td> <a href = "/poll/{{q._id}}"> {{ q.question }}</a> </td>
   <td>{{ q.createdAt |date : "medium" }}</td>
-  <td>
+  <td *ngIf= "q.user_name == current_user.name">
     <button (click)="Delete(q)">Delete</button>
     </td>
 </tr>

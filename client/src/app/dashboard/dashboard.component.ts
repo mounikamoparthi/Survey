@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
 current_user: User;
 list_questions: Array<Question>;
 searchStr: string = '';
-user_data: User;
+
 
   constructor(private _api: PollService, private _router: Router) { }
 
@@ -40,14 +40,7 @@ get_all_questions(){
   }
 
 
- getName(user){
-      this._api.getUserName(user)
-      .then((data) => {
-        if(data){
-          this.user_data = data;
-        }
-      })
- }
+
   Delete(question){
     let del = confirm(`Are you sure you want to remove`);
       if(del){

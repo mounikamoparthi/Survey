@@ -12,7 +12,8 @@ module.exports = (app) =>{
     app.get('/get_logged_in_user', users.currentUser)
     app.post("/destroyquestion", questions.delquest)
     app.get("/list_allQuestions", questions.showAll)
-    app.get('/getCurrentQuestions', questions.currentQuestions);
+    app.post("/addVotes", questions.addVotes)
+   
     app.post('/name', users.username)
     app.post('/getQuestions', questions.getQuestions)
    

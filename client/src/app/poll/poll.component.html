@@ -3,7 +3,7 @@
 <router-outlet></router-outlet>
 
 <!--<div *ngIf="current_question">-->
-<!--<h3> {{ current_question.question }} </h3>-->
+<h3> {{ current_question.question }} </h3>
 <p> Click the vote button to choose one </p>
 
 <table>
@@ -12,16 +12,12 @@
 		<th>Current Count of Votes</th>
 		<th>Action</th>
 	</tr>
-  <!--<tr *ngFor = "let p of current_question">-->
-  <td> {{current_question|json}} </td>
-  <!--<td> {{p.options[1]}} </td>
-  <td> {{p.options[2]}} </td>
-  <td> {{p.options[3]}} </td>
+  <tr *ngFor= "let q of current_question.options; let i = index">
+  <td> {{q}} </td>
+  <td> {{current_question.vote[i]}} </td>
+  <td> <button (click)="addVote(q)">Vote </button> </td>
 
-  <!--<td *ngIf= "q == current_user._id">
-    <button (click)="Delete(q)">Delete</button>
-    </td>-->
-<!--</tr>-->
+</tr>
 </table>
 
 

@@ -31,15 +31,12 @@ export class PollService {
      return this.http.post('/getQuestions',{id: question_id})
     .map(data => data.json()).toPromise();
   }
-getUserName(user){
-    console.log(user)
-    return this.http.post('/name', user)
+votes(option:String,question:String)
+{
+   return this.http.post('/addVotes',{id: question, num:option})
     .map(data => data.json()).toPromise();
-  }
-  getCurrentUserQuest(){
-    return this.http.get('/getCurrentQuestions')
-    .map(data => data.json()).toPromise();
-  }
+}
+
   destroy_question(question){
      return this.http.post('/destroyquestion', question)
     .map(data => data.json()).toPromise();

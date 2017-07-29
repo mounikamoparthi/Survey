@@ -1,5 +1,5 @@
 export class Question {
-  user_id: String
+  user_name: String
   question: String
   _id: String
   option1: String
@@ -7,6 +7,6 @@ export class Question {
   option3: String
   option4: String
   options: Array<String> =[]
-  vote: Number =0
+  vote: Array<Number> =[]
   createdAt: Date
 }

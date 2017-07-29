@@ -18,6 +18,14 @@ export class CreateComponent implements OnInit {
   constructor(private _api:PollService, private _router: Router) { }
 
   ngOnInit() {
+    this._api.getCurrentUser()
+    .then((data) => {
+      if(data){
+        this.current_user = data
+      } else {
+        this._router.navigate(["/login"])
+      }
+    })
 
   }
   onSubmit(){
@@ -26,9 +34,12 @@ export class CreateComponent implements OnInit {
     this.new_question.options.push(this.new_question.option2)
     this.new_question.options.push(this.new_question.option3)
     this.new_question.options.push(this.new_question.option4)
+    for(let i=0; i<4; i++){
+      this.new_question.vote.push(0);
+    }
 
   //  if(this.new_question.question!=null)
-
+    this.new_question.user_name = this.current_user.name;
     console.log(this.new_question.options);
     this._api.create(this.new_question)
     .then(() => {

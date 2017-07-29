@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const QuestionSchema = new mongoose.Schema({
-    user_id: {type: String},
+    user_name: {type: String},
     question: {type: String},
-    options: Array
+    options: Array,
+    vote: Array
 }, {timestamps: true});
 
 mongoose.model('Question', QuestionSchema);
